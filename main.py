@@ -127,10 +127,10 @@ def remove_product(product_id):
 
 
 
-def main():
+#def main():
     
-    pass
+ #   pass
 
 
-if __name__ == "__main__":
-    main() 
+#if __name__ == "__main__":
+ #   main() 

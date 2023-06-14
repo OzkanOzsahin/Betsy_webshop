@@ -1,13 +1,26 @@
 # Models go here
 from peewee import *
 from datetime import datetime
-
+import sqlite3
 
 db = SqliteDatabase(
     "webshop.db",
     pragmas={"journal_mode": "wal", "foreign_keys": 1, "ignore_check_constraints": 0},
 )
 
+
+class Database:
+    @staticmethod
+    def get_all_products():
+         conn = sqlite3.connect('database.db')
+         cursor = conn.cursor()
+         cursor.execute('SELECT * FROM product')
+         rows = cursor.fetchall()
+         cursor.close()
+         conn.close()
+         return rows
+        
+    
 class BaseModel(Model):
     class Meta:
         database = db
