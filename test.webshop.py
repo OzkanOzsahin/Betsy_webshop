@@ -5,8 +5,8 @@ import psycopg2
 
 def populate_test_database():
     
-    connection = psycopg2.connect(database='your_database_name', user='your_username', password='your_password', host='your_host')
-    cursor = connection.cursor()
+    #connection = psycopg2.connect(database='your_database_name', user='your_username', password='your_password', host='your_host')
+    #cursor = connection.cursor()
 
     # Execute SQL queries to insert example data into your tables
     insert_query = "INSERT INTO your_table (column1, column2) VALUES (%s, %s)"
@@ -18,15 +18,15 @@ def populate_test_database():
 
     # Execute the insert query for each data item
     for item in data:
-        cursor.execute(insert_query, item)
+        #cursor.execute(insert_query, item)
 
     # Commit the changes and close the connection
-    connection.commit()
-    connection.close()
+    #connection.commit()
+    #connection.close()
 
 
-class WebshopTestCase(unittest.TestCase):
-    def test_get_all_products(self):
+     class WebshopTestCase(unittest.TestCase):
+      def test_get_all_products(self):
         products = Database.get_all_products()
         self.assertEqual(len(products), 1)
 

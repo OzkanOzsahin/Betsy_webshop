@@ -3,8 +3,9 @@ from peewee import *
 from datetime import datetime
 import sqlite3
 
+
 db = SqliteDatabase(
-    "webshop.db",
+    "database.db",
     pragmas={"journal_mode": "wal", "foreign_keys": 1, "ignore_check_constraints": 0},
 )
 

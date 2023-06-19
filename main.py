@@ -6,14 +6,14 @@ from models import *
 __winc_id__ = "d7b474e9b3a54d23bca54879a4f1855b"
 __human_name__ = "Betsy Webshop"
 
-conn = sqlite3.connect('database.db')
-cursor = conn.cursor()
-cursor.execute('SELECT * FROM product')
-rows = cursor.fetchall()
-headers = [description[0] for description in cursor.description]
-print(tabulate(rows, headers, tablefmt="grid"))
-cursor.close()
-conn.close()
+#conn = sqlite3.connect('database.db')
+#cursor = conn.cursor()
+#cursor.execute('SELECT * FROM product')
+#rows = cursor.fetchall()
+#headers = [description[0] for description in cursor.description]
+#print(tabulate(rows, headers, tablefmt="grid"))
+#cursor.close()
+#conn.close()
 
 def search(term):
     products = Product.select().where(
