@@ -19,6 +19,7 @@ def search(term):
     products = Product.select().where(
         Product.name.contains(term) | Product.description.contains(term)
     )
+    print("apples", products)
     print(f"The search on '{term}' delivers these products:")
     print("========================================================")
     if len(products) == 0:
@@ -33,14 +34,15 @@ def search(term):
 
 def list_user_products(user_id):
     try:
-        tag = Tag.get_by_id(user_id)
+        id = id.get_by_id(user_id)
     except DoesNotExist:
         print(f"Tag_id: '{user_id}' is not found")
         return
 
-    print(f"Tag '{tag.name}' is present in the following products:")
+    print(f"Id '{id.name}' is present in the following products:")
     print("=======================================================")
-    products = Product.select().join(ProductTag).where(ProductTag.tag == user_id)
+    
+    products = Product.select().join(Product).where(Product.id == user_id)
     for product in products:
         print(product.product_id, "|", product.name, "|", product.description)
 
